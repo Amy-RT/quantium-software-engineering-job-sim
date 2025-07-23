@@ -8,33 +8,34 @@ import pandas as pd
 
 app = Dash()
 
-# assume you have a "long-form" data frame
-# see https://plotly.com/python/px-arguments/ for more options
-df = pd.read_csv('./data/prepared_pink_morsel_data.csv')
+DATA_PATH = './data/prepared_pink_morsel_data.csv'
+df = pd.read_csv(DATA_PATH)
+df = df.sort_values(by="date")
 
 fig = px.line(
     df,
-    x='date',         # Column for the x-axis (e.g., time)
-    y='total_sales',  # Column for the y-axis (e.g., value)
-    title='Daily Pink Morsel sales for the period 2018-2022:' # Title of the chart
+    x='date',         
+    y='total_sales',  
+    title='Daily Pink Morsel sales for the period 2018-2022:' 
 )
 
 app.layout = html.Div(children=[
     html.H1(children=' Pink Morsel: Cross  Regional Sales History',
             style={
             'textAlign': 'center',
-            'fontFamily': 'Arial, sans-serif',  # Example: Change font family
-            'fontSize': '36px',                # Example: Change font size
-            'color': '#333333',                # Example: Change font color
-            'fontWeight': 'bold'               # Example: Change font weight
-        }),
+            'fontFamily': 'Arial, sans-serif',  
+            'fontSize': '36px',                
+            'color': '#333333',                
+            'fontWeight': 'bold'               
+            },
+            id="header"),
 
     # html.Div(children='''
     #     Dash: A web application framework for your data.
     # '''),
 
     dcc.Graph(
-        id='example-graph',
+        id='visualisation',
         figure=fig
     )
 ])
