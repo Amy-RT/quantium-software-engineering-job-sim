@@ -1,0 +1,31 @@
+.app-text-font {
+    font-family: 'Arial', sans-serif;
+    color: #333333; 
+}
+
+/* Style for the H1 title */
+#main-app-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* Style for the radio button container */
+#region-radio-container {
+    text-align: center; /* To center the radio buttons themselves */
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Style for the radio container title */
+#radio-container-title {
+    font-size: 25px;
+    display: block;
+    padding-bottom: 20px;
+}
+
+/* Style for the radio button labels */
+#region-radio-buttons label { 
+    margin-right: 15px; /* Add some space between radio options */
+    font-size: 20px;
+}

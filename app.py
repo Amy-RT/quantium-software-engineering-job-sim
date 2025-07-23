@@ -21,23 +21,44 @@ fig = px.line(
 
 app.layout = html.Div(children=[
     html.H1(children=' Pink Morsel: Cross  Regional Sales History',
-            style={
-            'textAlign': 'center',
-            'fontFamily': 'Arial, sans-serif',  
-            'fontSize': '36px',                
-            'color': '#333333',                
-            'fontWeight': 'bold'               
-            },
-            id="header"),
+            id="main-app-title",
+            className='app-text-font'),
+    
+    dcc.Graph(
+        id='visualisation',
+        figure=fig
+    ),
+
+    # Add the Radio Buttons component
+    html.Div(
+        children=[
+            html.Label('Select a Sales Region:', 
+                       className='app-text-font',
+                       id='radio-container-title'),
+            dcc.RadioItems(
+                id='region-radio-buttons', 
+                className='app-text-font',
+                options=[
+                    {'label': 'All Regions', 'value': 'all'},
+                    {'label': 'North', 'value': 'north'},
+                    {'label': 'South', 'value': 'south'},
+                    {'label': 'East', 'value': 'east'},
+                    {'label': 'West', 'value': 'west'}
+                ],
+                value='all',  # Default selected value 
+                inline=True,  # Display radio buttons horizontally
+            )
+        ],
+        id='region-radio-container'
+    ),
 
     # html.Div(children='''
     #     Dash: A web application framework for your data.
     # '''),
 
-    dcc.Graph(
-        id='visualisation',
-        figure=fig
-    )
+    
+
+    
 ])
 
 if __name__ == '__main__':
