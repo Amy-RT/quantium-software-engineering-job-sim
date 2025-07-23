@@ -22,7 +22,33 @@ fig = px.line(
 fig.update_layout(
         xaxis_title="Date",
         yaxis_title="Total Sales ($)",
-        hovermode="x unified" # Ensures consistent hover info across lines if multiple
+        hovermode="x unified",
+        paper_bgcolor='black',
+        font_color='white',
+        hoverlabel=dict(
+        bgcolor="rgba(255,255,255,0.8)", # Light background for hover box
+        font_size=14,                   
+        font_color="black",             
+        bordercolor="black"
+        ),
+        xaxis=dict(
+            # showgrid=False,
+            gridcolor='#111111',  
+            tickfont=dict(color='white', size=12), # X-axis tick label color,
+            title=dict( 
+                font=dict(size=25, color='white'),
+                standoff=15 
+            )
+        ),
+        yaxis=dict(
+            # showgrid=False,
+            gridcolor='#111111',  
+            tickfont=dict(color='white', size=12), # Y-axis tick label color
+            title=dict( 
+                font=dict(size=25, color='white'),
+                standoff=15 
+            )
+        ),
     )
 
 app.layout = html.Div(children=[
@@ -72,11 +98,11 @@ def update_graph(selected_region):
 
     if selected_region == 'all':
         df_for_chart = df_filtered_by_region
-        chart_title = 'Pink Morsel Sales Across All Regions'
+        chart_title = 'Pink Morsel Sales Across All Regions:'
     else:
         # Filter by region
         df_for_chart = df_filtered_by_region[df_filtered_by_region['region'] == selected_region]
-        chart_title = f'Pink Morsel Sales in the {selected_region.title()} Region'
+        chart_title = f'Pink Morsel Sales in the {selected_region.title()} Region:'
 
     # Create the line chart
     fig = px.line(
@@ -89,8 +115,35 @@ def update_graph(selected_region):
     fig.update_layout(
         xaxis_title="Date",
         yaxis_title="Total Sales ($)",
-        hovermode="x unified" # Ensures consistent hover info across lines if multiple
+        hovermode="x unified",
+        paper_bgcolor='black',
+        font_color='white',
+        hoverlabel=dict(
+        bgcolor="rgba(255,255,255,0.8)", # Light background for hover box
+        font_size=14,                   
+        font_color="black",             
+        bordercolor="black"
+        ),
+        xaxis=dict(
+            # showgrid=False,
+            gridcolor='#111111',
+            tickfont=dict(color='white', size=12), # X-axis tick label color,
+            title=dict( 
+                font=dict(size=25, color='white'),
+                standoff=15 
+            )
+        ),
+        yaxis=dict(
+            # showgrid=False,
+            gridcolor='#111111',
+            tickfont=dict(color='white', size=12), # Y-axis tick label color
+            title=dict( 
+                font=dict(size=25, color='white'),
+                standoff=15 
+            )
+        ),
     )
+    
 
     return fig
 

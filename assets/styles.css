@@ -1,6 +1,11 @@
+body {
+    background-color: black;
+}
+
 .app-text-font {
     font-family: 'Arial', sans-serif;
-    color: #333333; 
+    /* color: #333333;  */
+    color: white;
 }
 
 /* Style for the H1 title */
@@ -28,4 +33,10 @@
 #region-radio-buttons label { 
     margin-right: 15px; /* Add some space between radio options */
     font-size: 20px;
+}
+
+/* Style for the text of the *selected* radio button */
+#region-radio-buttons input[type="radio"]:checked + span {
+    color: cyan; /* Highlight text color when selected */
+    font-weight: bold; /* Make selected text bold */
 }
