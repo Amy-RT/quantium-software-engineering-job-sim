@@ -15,7 +15,7 @@ def test_h1_title_is_present(dash_app):
     """
     Checks if the main H1 title element is present in the layout.
     """
-    # Wait for the element with id 'main-app-title' to be visible.
+    # Wait for the element to be visible.
     dash_app.wait_for_element("#main-app-title", timeout=10)
 
     # Check the title is showing the correct content
@@ -25,12 +25,10 @@ def test_visualisation_is_present(dash_app):
     """
     Checks if the line chart element is present in the layout.
     """
-    # Wait for the element with id 'main-app-title' to be visible.
     dash_app.wait_for_element("#visualisation", timeout=10)
 
 def test_radio_btns_are_present(dash_app):
     """
     Checks if the radio buttons element is present in the layout.
     """
-    # Wait for the element with id 'main-app-title' to be visible.
     dash_app.wait_for_element("#region-radio-buttons", timeout=10)
